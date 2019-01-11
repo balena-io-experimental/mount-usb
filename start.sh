@@ -1,4 +1,11 @@
+#!/usr/bin/bash
 
+hostname "$HOSTNAME" &> /dev/null
+if [[ $? == 0 ]]; then
+	PRIVILEGED=true
+else
+	PRIVILEGED=false
+fi
 
 function mount_dev()
 {
