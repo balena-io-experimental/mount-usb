@@ -1,0 +1,11 @@
+[Unit]
+Description = External USB Drive
+
+[Mount]
+What = /dev/sda1
+Where = /mnt/storage
+Type = ext4
+Options = rw,relatime,data=ordered
+
+[Install]
+WantedBy = multi-user.target

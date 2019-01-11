@@ -1,0 +1,10 @@
+# vi: ft=dockerfile
+FROM resin/%%RESIN_MACHINE_NAME%%-ubuntu:xenial
+
+ENV INITSYSTEM on
+
+ENV DBUS_SYSTEM_BUS_ADDRESS "unix:path=/host/run/dbus/system_bus_socket"
+COPY mnt-storage.mount /etc/systemd/system/
+RUN systemctl enable mnt-storage.mount
+
+ENTRYPOINT ["/bin/sleep", "86400"]
